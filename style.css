@@ -1,13 +1,16 @@
-/* 基礎樣式重設 */
+/* ==========================================================================
+   1. 基礎重設與頂級字型排版 (Premium Typography)
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* 整個網頁的最外層深色科技漸層 */
+    background-color: #f8fafc; /* 乾淨、明亮的極淺冷灰桌面 */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,231 +18,212 @@ body {
     overflow: hidden;
 }
 
-/* 主應用程式容器 */
+/* ==========================================================================
+   2. 主應用程式容器 (極簡結構，無多餘裝飾)
+   ========================================================================== */
 .app-container {
     display: flex;
     width: 95vw;
-    max-width: 1400px;
-    height: 90vh;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(20px); /* 磨砂玻璃效果 */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-width: 1350px;
+    height: 88vh;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     overflow: hidden;
 }
 
-/* 左側主頁導覽選單 */
+/* ==========================================================================
+   3. 左側側邊欄 (啞光碳黑高冷風格)
+   ========================================================================== */
 .sidebar {
-    width: 25%;
-    min-width: 290px;
-    background: #0f172a; /* 穩重的極深藍 */
-    color: #fff;
-    padding: 40px 24px;
+    width: 24%;
+    min-width: 280px;
+    background: #111213; /* 極具內斂感的頂級碳黑 */
+    color: #ffffff;
+    padding: 45px 30px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .profile-summary {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.avatar-placeholder {
-    width: 110px;
-    height: 140px;
-    background: #1e293b;
-    border: 2px dashed #3b82f6;
-    margin: 0 auto 15px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #64748b;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin-bottom: 40px;
 }
 
 .profile-summary h2 {
-    color: #fff;
     font-size: 26px;
-    margin-bottom: 6px;
-    letter-spacing: 1.5px;
     font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    color: #ffffff;
 }
 
 .profile-summary p {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .job-title {
     display: inline-block;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: #fff;
-    font-size: 13px;
-    padding: 6px 16px;
-    border-radius: 20px;
+    font-size: 12px;
+    color: #f1f5f9;
+    background: #2563eb; /* 唯一的品牌原色，用於點綴點睛 */
+    padding: 4px 12px;
+    border-radius: 4px;
     font-weight: 500;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    letter-spacing: 0.5px;
 }
 
-/* 聯絡資訊優化 */
+/* 聯絡資訊 (文字排版主義，移除大圖標與雜亂色塊) */
 .contact-info {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
     font-size: 13px;
+    border-top: 1px solid #27272a;
+    padding-top: 20px;
 }
 
 .contact-info h3 {
-    font-size: 13px;
-    color: #3b82f6;
+    font-size: 11px;
+    color: #a1a1aa;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .contact-info p {
     margin-bottom: 8px;
-    color: #cbd5e1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: #d4d4d8;
+    letter-spacing: 0.5px;
 }
 
-.contact-info p:last-child {
-    margin-bottom: 0;
-}
-
-/* 導覽選單 */
+/* 導覽選單 (極簡線條切換) */
 .nav-menu {
     list-style: none;
+    margin-top: auto; /* 推至底部 */
 }
 
 .nav-item {
-    padding: 14px 18px;
-    margin-bottom: 10px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
+    padding: 12px 0;
     font-size: 14px;
-    color: #94a3b8;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #71717a;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    position: relative;
+    letter-spacing: 1px;
 }
 
 .nav-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    color: #fff;
-    transform: translateX(4px);
+    color: #e4e4e7;
 }
 
 .nav-item.active {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #3b82f6;
-    font-weight: 600;
-    transform: translateX(4px);
+    color: #ffffff;
+    font-weight: 500;
 }
 
-/* 右側履歷畫布區 (襯托 A4 紙張的「桌面環境」) */
+/* 啟用狀態的左側俐落短線 */
+.nav-item.active::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 14px;
+    background: #2563eb;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   4. 右側內容畫布區 (沉浸式雜誌排版環境)
+   ========================================================================== */
 .content-canvas {
-    width: 75%;
-    background: #f1f5f9; /* 關鍵修正 1：改用高級的溫和淺冷灰，完美襯托純白紙張與深色側邊欄 */
-    padding: 40px; /* 關鍵修正 2：四周均等留白，確保紙張上下不會頂死邊界 */
+    width: 76%;
+    background: #fdfdfd; /* 與最外層區隔，營造舒適乾淨的閱讀環境 */
+    padding: 50px;
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center; /* 關鍵修正 3：改為 center，讓 A4 紙張在任何解析度下都完美垂直/水平置中 */
+    align-items: center;
     overflow: hidden;
+    border-left: 1px solid #f1f5f9;
 }
 
-/* 單頁履歷 - 模擬真實 A4 紙張尺寸與內部防溢出滾動 */
+/* 單頁履歷 - 真實 A4 紙張與優雅的內部滾動機制 */
 .resume-page {
     position: absolute;
     width: 100%;
-    max-width: 794px;
+    max-width: 760px;
     height: 100%;
-    max-height: 1123px; /* A4 標準比例上限 */
+    max-height: 1080px;
     aspect-ratio: 1 / 1.4142;
-    background: #ffffff; /* 純白紙張 */
-    padding: 55px 50px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12), 0 1px 8px rgba(15, 23, 42, 0.04); /* 優化陰影，讓紙張微微浮起不突兀 */
+    background: #ffffff;
+    padding: 60px 55px;
     box-sizing: border-box;
+    border: 1px solid #f1f5f9; /* 極細的紙張邊框線 */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02); /* 極輕柔的天然陰影 */
     
-    /* 內部溢出滾動機制 */
-    overflow-y: auto; 
+    /* 防溢出優化滾動條 */
+    overflow-y: auto;
     scrollbar-width: thin;
     
     opacity: 0;
-    transform: translateY(25px); /* 改為優雅的向上微調淡入 */
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    transform: scale(0.98); /* 優雅的微縮放淡入，取代突兀的位移 */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     pointer-events: none;
 }
 
-/* 針對內置滾動條樣式優化 */
+/* 隱藏或極簡化滾動條樣式 */
 .resume-page::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 .resume-page::-webkit-scrollbar-track {
     background: transparent;
 }
 .resume-page::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-.resume-page::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #e4e4e7;
+    border-radius: 2px;
 }
 
 .resume-page.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
     pointer-events: auto;
 }
 
-/* 履歷元件基礎排版 */
+/* ==========================================================================
+   5. 履歷內頁排版內容 (Editorial Layout)
+   ========================================================================== */
 .resume-page h2 {
-    color: #0f172a;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-}
-
-.resume-page hr {
-    border: 0;
-    height: 4px;
-    background: #3b82f6;
+    color: #111213;
+    font-size: 20px;
+    font-weight: 600;
     margin-bottom: 25px;
-    width: 60px;
-    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #111213; /* 用純黑細線取代原本粗的藍色 HR 線 */
+    padding-bottom: 10px;
 }
 
 .page-content {
-    color: #334155;
-    line-height: 1.75;
-    font-size: 15px;
+    color: #3f3f46;
+    line-height: 1.8;
+    font-size: 14.5px;
 }
 
 .intro-paragraph {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     text-align: justify;
-    text-indent: 2em;
+    color: #27272a;
 }
 
-/* 技能區塊排版 */
+/* 專業技能與特質排版 */
 .skills-grid {
     display: flex;
-    gap: 35px;
+    gap: 50px;
 }
 
 .skill-block {
@@ -247,13 +231,12 @@ body {
 }
 
 .skill-block h3, .edu-block h3, .awards-block h3, .training-block h3 {
-    font-size: 16px;
-    color: #0f172a;
-    font-weight: 700;
-    border-left: 4px solid #3b82f6;
-    padding-left: 10px;
-    margin-bottom: 14px;
-    margin-top: 5px;
+    font-size: 14px;
+    color: #111213;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .skill-block ul {
@@ -261,115 +244,99 @@ body {
 }
 
 .skill-block li {
-    margin-bottom: 10px;
-    background: #f1f5f9;
-    padding: 8px 14px;
-    border-radius: 6px;
+    margin-bottom: 12px;
     font-size: 14px;
-    color: #334155;
-    font-weight: 500;
-    border-left: 3px solid #cbd5e1;
+    color: #52525b;
+    display: flex;
+    align-items: center;
 }
 
-/* 工作經歷排版 */
+/* 自訂清單前綴，取代粗糙的預設點點或背景框 */
+.skill-block li::before {
+    content: "—";
+    color: #a1a1aa;
+    margin-right: 10px;
+    font-weight: 300;
+}
+
+/* 工作經歷排版 (高級時間線與文字結構) */
 .exp-item {
-    margin-bottom: 22px;
-    border-bottom: 1px dashed #e2e8f0;
-    padding-bottom: 18px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .exp-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .exp-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 4px;
 }
 
 .exp-header h3 {
-    font-size: 16px;
-    color: #0f172a;
-    font-weight: 700;
+    font-size: 15px;
+    color: #111213;
+    font-weight: 600;
 }
 
 .exp-date {
-    color: #64748b;
-    font-size: 13px;
-    font-weight: 500;
-    background: #f1f5f9;
-    padding: 2px 10px;
-    border-radius: 12px;
+    color: #71717a;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.5px;
 }
 
 .exp-title {
-    color: #2563eb;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 8px;
+    color: #2563eb; /* 核心原色點綴職稱 */
+    font-weight: 500;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
 .exp-item ul {
-    padding-left: 18px;
-    font-size: 14px;
-    color: #475569;
+    padding-left: 15px;
+    font-size: 13.5px;
+    color: #52525b;
 }
 
 .exp-item li {
     margin-bottom: 6px;
+    text-align: justify;
 }
 
-/* 培訓專區卡片樣式 */
-.training-item {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-left: 4px solid #3b82f6;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    border-radius: 0 8px 8px 0;
+/* 專業管理培訓與榮譽區塊 */
+.training-item, .award-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f4f4f5; /* 輕量細線分割 */
 }
 
-.training-title {
-    font-weight: 700;
-    color: #1e293b;
+.training-item:last-child, .award-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.training-title, .award-title {
+    font-weight: 600;
+    color: #111213;
     font-size: 14px;
 }
 
-.training-desc {
-    font-size: 13px;
-    color: #64748b;
-    margin-top: 4px;
-    line-height: 1.6;
-}
-
-/* 榮譽與獎項 */
-.award-item {
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-left: 4px solid #22c55e;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    border-radius: 0 8px 8px 0;
-}
-
-.award-title {
-    font-weight: 700;
-    color: #14532d;
-    font-size: 15px;
-}
-
 .award-title span {
-    font-weight: 500;
-    color: #166534;
-    font-size: 13px;
+    font-weight: 400;
+    color: #71717a;
+    font-size: 12px;
     float: right;
-    background: rgba(255,255,255,0.6);
-    padding: 1px 8px;
-    border-radius: 10px;
 }
 
-.award-desc {
+.training-desc, .award-desc {
     font-size: 13px;
-    color: #166534;
+    color: #71717a;
     margin-top: 4px;
+    text-align: justify;
 }
