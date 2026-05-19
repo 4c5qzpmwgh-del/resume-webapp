@@ -3,62 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>互動式翻頁履歷 Web App</title>
+    <title>施孟圻 Meng-Chi Shih - 互動式履歷</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="app-container">
-        <!-- 左側主頁導覽選單 -->
         <nav class="sidebar">
             <div class="profile-summary">
-                <h2>我的履歷 App</h2>
-                <p>請選擇想查看的章節</p>
+                <div class="avatar-placeholder">📷 請在此插入照片</div>
+                <h2>施孟圻</h2>
+                <p>Meng-Chi Shih</p>
+                <span class="job-title">售後工程副組長</span>
             </div>
+            
+            <div class="contact-info">
+                <h3>聯絡資訊</h3>
+                <p><strong>電話：</strong>0976-067-935</p>
+                <p><strong>Email：</strong>mengchi1570@gmail.com</p>
+                <p><strong>地址：</strong>新北市板橋區</p>
+            </div>
+
             <ul class="nav-menu">
                 <li class="nav-item active" data-target="page-profile">個人簡介</li>
-                <li class="nav-item" data-target="page-skills">專業技能</li>
+                <li class="nav-item" data-target="page-skills">專業與特質</li>
                 <li class="nav-item" data-target="page-experience">工作經歷</li>
-                <li class="nav-item" data-target="page-projects">專案作品</li>
+                <li class="nav-item" data-target="page-education">學歷與獎項</li>
             </ul>
         </nav>
 
-        <!-- 右側翻頁式內容區 -->
         <main class="content-canvas">
             
-            <!-- 頁面 1: 個人簡介 -->
             <section id="page-profile" class="resume-page active">
-                <h2>關於我 / Profile</h2>
+                <h2>個人簡介 / Profile</h2>
                 <hr>
-                <p>這裡填寫你的個人簡介。例如：具備豐富開發經驗的軟體工程師，專注於打造高效、流暢的 Web 應用程式...</p>
-            </section>
-
-            <!-- 頁面 2: 專業技能 -->
-            <section id="page-skills" class="resume-page">
-                <h2>專業技能 / Skills</h2>
-                <hr>
-                <ul>
-                    <li><strong>Languages:</strong> Python, Rust, JavaScript, HTML/CSS</li>
-                    <li><strong>Backend & Tools:</strong> Git, Supabase, Node.js</li>
-                </ul>
-            </section>
-
-            <!-- 頁面 3: 工作經歷 -->
-            <section id="page-experience" class="resume-page">
-                <h2>工作經歷 / Experience</h2>
-                <hr>
-                <div class="exp-item">
-                    <h3>高級前端工程師 @ 某科技公司</h3>
-                    <p class="date">2024 - 現在</p>
-                    <p>負責核心 Web App 的架構設計與效能優化。</p>
+                <div class="page-content">
+                    <p class="intro-paragraph">
+                        於售後服務產業深耕 <strong>8.5 年</strong>，職涯橫跨 B2C 客戶服務、跨國三方金流產品管理，以及科技業售後工程體系。自 2019 年返台加入貫傑科技至今約 7 年，從售後工程師逐步晉升至資深工程師、副組長，建立穩固的專業基礎與管理經驗。
+                    </p>
+                    <p class="intro-paragraph">
+                        專注於團隊夥伴的情感梳理與心理層面輔導，於公於私兼顧團隊向心力。工作態度穩定、責任感強，是夥伴信賴的引路人；私下則展現高度親和力，擅長以幽默感凝聚團隊氣氛。
+                    </p>
                 </div>
             </section>
 
-            <!-- 頁面 4: 專案作品 -->
-            <section id="page-projects" class="resume-page">
-                <h2>專案作品 / Projects</h2>
+            <section id="page-skills" class="resume-page">
+                <h2>專業與特質 / Skills & Traits</h2>
                 <hr>
-                <p>展示你引以為傲的專案，例如自動化工具、財務追蹤系統等。</p>
+                <div class="page-content">
+                    <div class="skills-grid">
+                        <div class="skill-block">
+                            <h3>🛠️ 專業技能</h3>
+                            <ul>
+                                <li>售後工程管理</li>
+                                <li>客戶服務與支援</li>
+                                <li>技術問題排除</li>
+                                <li>團隊協調與帶領</li>
+                                <li>員工心理輔導</li>
+                                <li>跨部門溝通</li>
+                                <li>B2C 客戶服務</li>
+                                <li>三方金流產品管理</li>
+                            </ul>
+                        </div>
+                        <div class="skill-block">
+                            <h3>✦ 個人特質</h3>
+                            <ul>
+                                <li>穩定度高</li>
+                                <li>高度責任感</li>
+                                <li>情感梳理專家</li>
+                                <li>公私分明</li>
+                                <li>團隊凝聚力佳</li>
+                            </ul>
+                            <h3 style="margin-top: 20px;">🗣️ 語言能力</h3>
+                            <ul>
+                                <li>中文（母語）</li>
+                                <li>英文（基礎溝通）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-experience" class="resume-page">
+                <h2>工作經歷 / Experience</h2>
+                <hr>
+                <div class="page-content window-scroll">
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2023/11 - 現任</span>
+                        </div>
+                        <p class="exp-title">售後工程部副組長</p>
+                        <ul>
+                            <li>帶領售後工程團隊，負責部門營運、人員調度與績效管理。</li>
+                            <li>建立團隊內部溝通機制，強化夥伴間的情感連結與向心力。</li>
+                            <li>協助處理重大客訴與技術疑難案件，確保客戶滿意度。</li>
+                            <li>跨部門協作，串連業務、研發與客服資源以提升服務品質。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2021/03 - 2023/11</span>
+                        </div>
+                        <p class="exp-title">資深售後工程師</p>
+                        <ul>
+                            <li>負責複雜技術案件的問題排除與系統性分析。</li>
+                            <li>協助培訓新進工程師，建立標準化工作流程與知識庫。</li>
+                            <li>2022 年獲頒公司唯一一座「最佳進步獎」。</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2019/06 - 2021/03</span>
+                        </div>
+                        <p class="exp-title">售後工程師</p>
+                        <ul>
+                            <li>處理客戶端產品安裝、維修與技術支援。</li>
+                            <li>快速累積產品專業知識與第一線客戶溝通經驗。</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>Boar Technology（泰國）</h3>
+                            <span class="exp-date">2018/12 - 2019/06</span>
+                        </div>
+                        <p class="exp-title">三方金流產品經理 (PM)</p>
+                        <ul>
+                            <li>派駐泰國，負責三方金流產品的需求規劃與專案管理。</li>
+                            <li>跨國團隊協作，累積跨文化溝通與國際商務經驗。</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>益智博</h3>
+                            <span class="exp-date">2018/01 - 2018/12</span>
+                        </div>
+                        <p class="exp-title">客服專員</p>
+                        <ul>
+                            <li>負責 B2C 客戶服務，建立紮實的客戶溝通與問題處理基礎。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-education" class="resume-page">
+                <h2>學歷與榮譽 / Education & Awards</h2>
+                <hr>
+                <div class="page-content">
+                    <div class="edu-block">
+                        <h3>🎓 教育背景</h3>
+                        <div class="exp-header">
+                            <p><strong>輔仁大學</strong> - 餐飲管理學系</p>
+                        </div>
+                    </div>
+
+                    <div class="awards-block" style="margin-top: 40px;">
+                        <h3>🏆 獎項紀錄</h3>
+                        
+                        <div class="award-item">
+                            <p class="award-title">🏆 年度最佳員工獎 ｜ 貫傑科技 <span>(2024 年)</span></p>
+                            <p class="award-desc">綜合績效表現與團隊貢獻獲全公司肯定。</p>
+                        </div>
+
+                        <div class="award-item">
+                            <p class="award-title">🏆 最佳進步獎 ｜ 貫傑科技 <span>(2022 年)</span></p>
+                            <p class="award-desc">公司當年度唯一獲獎者，肯定個人成長與專業躍進。</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </main>
