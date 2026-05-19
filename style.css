@@ -1,465 +1,241 @@
 /* ==========================================================================
-   1. 基礎重設與極簡字型
+   1. 基礎重設與雜誌級字型系統
    ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: #f8fafc; 
+    /* 暖灰色背景 + 微弱漸層光暈 */
+    background: radial-gradient(circle at 10% 20%, rgba(242, 240, 235, 1) 0%, rgba(225, 222, 215, 1) 90%);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    font-family: "Inter", -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   2. 主應用程式容器
+   2. 主容器 - 懸浮島嶼設計 (Floating Island)
    ========================================================================== */
 .app-container {
     display: flex;
-    width: 95vw;
-    max-width: 1400px;
-    height: 88vh;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    width: 96vw;
+    max-width: 1440px;
+    height: 92vh;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    gap: 20px;
     overflow: hidden;
 }
 
 /* ==========================================================================
-   3. 左側主選單側邊欄 (Sidebar)
+   3. 左側懸浮導覽島 (Floating Sidebar)
    ========================================================================== */
 .sidebar {
-    width: 24%;
-    min-width: 280px;
-    background: #f8fafc; 
-    color: #0f172a;      
-    padding: 40px 25px;
+    width: 280px;
+    background: #1a1c20;
+    color: #fff;
+    border-radius: 24px;
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #e2e8f0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .profile-summary {
     margin-bottom: 30px;
 }
 
+/* 名字採用襯線體增加高級感 */
 .profile-summary h2 {
-    font-size: 26px;
-    font-weight: 700;
+    font-family: "Georgia", serif;
+    font-size: 32px;
+    font-weight: 400;
     letter-spacing: 1px;
-    color: #0f172a;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .profile-summary p {
-    color: #64748b;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 12px;
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .job-title {
-    font-size: 12.5px;
-    color: #0f172a;
+    display: inline-block;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
     font-weight: 600;
-    border-left: 3px solid #0f172a;
-    padding-left: 8px;
 }
 
 .contact-info {
-    margin-bottom: 35px;
+    margin: 40px 0;
     font-size: 13px;
+    color: #aaa;
 }
 
 .contact-info h3 {
-    font-size: 11px;
-    color: #94a3b8;
+    font-size: 10px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-    font-weight: 600;
+    margin-bottom: 15px;
+    color: #555;
 }
 
 .contact-info p {
-    margin-bottom: 6px;
-    color: #334155;
+    margin-bottom: 8px;
+    font-family: "JetBrains Mono", monospace; /* 聯絡資訊用等寬字型營造技術感 */
 }
 
-/* 導覽項目 */
+/* 選單按鈕 */
 .nav-menu {
     list-style: none;
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .nav-item {
     padding: 12px 0;
     font-size: 14px;
-    color: #94a3b8;
+    color: #666;
     cursor: pointer;
-    transition: all 0.2s ease;
-    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.nav-item:hover {
-    color: #475569;
-}
+.nav-item:hover { color: #fff; }
 
 .nav-item.active {
-    color: #0f172a;
-    font-weight: 700;
+    color: #fff;
+    font-weight: 600;
+    padding-left: 10px;
 }
 
-/* A4 功能跳轉鍵 */
+.nav-item.active::before {
+    content: "→";
+    margin-right: 8px;
+    color: #3b82f6;
+}
+
 .nav-item.a4-btn {
-    margin-top: 15px;
-    padding: 10px 14px;
-    border: 1px dashed #cbd5e1;
-    border-radius: 6px;
-    text-align: center;
-    background: #ffffff;
-    color: #475569;
-}
-
-.nav-item.a4-btn:hover {
-    background: #f1f5f9;
-    border-color: #0f172a;
-    color: #0f172a;
-}
-
-.nav-item.a4-btn.active {
-    background: #0f172a;
-    color: #ffffff;
-    border-style: solid;
-    border-color: #0f172a;
+    margin-top: 10px;
+    color: #3b82f6;
+    font-weight: 600;
 }
 
 /* ==========================================================================
-   4. 右側內容畫布區 (Canvas)
+   4. 右側內容畫布區 (Editorial Canvas)
    ========================================================================== */
 .content-canvas {
-    width: 76%;
-    background: #ffffff; 
-    padding: 40px 50px;
+    flex: 1;
+    background: transparent;
     position: relative;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
 }
 
-/* 分頁基礎切換樣式 */
+/* 紙張設計 - 加上細微的紙張噪點質感 */
 .resume-page {
     position: absolute;
     width: 100%;
-    max-width: 850px;
+    max-width: 800px;
     height: 100%;
-    box-sizing: border-box;
-    background: #ffffff;
-    overflow-y: auto;
-    scrollbar-width: none;
+    max-height: 1100px;
+    background: #fff;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png'); /* 加入紙張質感 */
+    padding: 70px 60px;
+    border-radius: 4px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
     opacity: 0;
-    transform: translateY(10px);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: rotateX(2deg) translateY(20px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     pointer-events: none;
-}
-
-.resume-page::-webkit-scrollbar {
-    display: none;
+    overflow-y: auto;
 }
 
 .resume-page.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: rotateX(0deg) translateY(0);
     pointer-events: auto;
 }
 
-/* 基礎頁面章節標題線 */
+/* 內文排版 - 雜誌風格 */
 .resume-page h2 {
-    color: #0f172a;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #0f172a;
-    padding-bottom: 10px;
-}
-
-.page-content {
-    color: #334155;
-    line-height: 1.8;
-    font-size: 14.5px;
-}
-
-.intro-paragraph {
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-.skills-grid {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    color: #1a1c20;
+    margin-bottom: 40px;
     display: flex;
+    align-items: center;
+}
+
+.resume-page h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    margin-left: 20px;
+}
+
+/* 雙欄整合排版優化 */
+.a4-main-split {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
     gap: 50px;
 }
 
-.skill-block {
-    flex: 1;
-}
+.a4-left-zone { border-right: 1px solid #f0f0f0; padding-right: 30px; }
 
-.skill-block h3, .edu-block h3, .awards-block h3, .training-block h3 {
-    font-size: 13.5px;
-    color: #0f172a;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
+.a4-block-section { margin-bottom: 30px; }
 
-.skill-block ul {
-    list-style-type: none;
-}
-
-.skill-block li {
-    margin-bottom: 10px;
-    color: #475569;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 5px;
-}
-
-.exp-item {
-    margin-bottom: 25px;
-}
-
-.exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
-}
-
-.exp-header h3 {
-    font-size: 15.5px;
-    color: #0f172a;
-    font-weight: 700;
-}
-
-.exp-date {
-    color: #64748b;
-    font-size: 12.5px;
-}
-
-.exp-title {
-    color: #475569;
-    font-weight: 600;
-    font-size: 13.5px;
-    margin-bottom: 8px;
-}
-
-.exp-item ul {
-    padding-left: 15px;
-    font-size: 13.5px;
-    color: #334155;
-}
-
-.exp-item li {
-    margin-bottom: 6px;
-}
-
-/* ==========================================================================
-   5. 全新重構：A4 整合頁面左右完全分區佈局 (A4 Split-Column Layout)
-   ========================================================================== */
-.a4-integrated-layout {
-    display: flex;
-    flex-direction: column;
-    max-height: 100% !important;
-    overflow: hidden !important; /* 確保不產生任何滾動條，完美鎖定 */
-    padding: 0 10px;
-}
-
-/* 頂部通欄 Header */
-.a4-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 2px solid #0f172a;
-    padding-bottom: 12px;
-    margin-bottom: 18px;
-}
-
-.a4-title-area h1 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #0f172a;
-    letter-spacing: 0.5px;
-}
-
-.a4-title-area .en-name {
-    font-size: 16px;
-    font-weight: 400;
-    color: #64748b;
-    margin-left: 6px;
-}
-
-.a4-subtitle {
-    font-size: 12.5px;
-    color: #475569;
-    font-weight: 500;
-    margin-top: 2px;
-}
-
-.a4-contact-grid {
-    text-align: right;
-    font-size: 11.5px;
-    color: #334155;
-    line-height: 1.5;
-}
-
-/* 核心左右分區聯動架構 */
-.a4-main-split {
-    display: flex;
-    gap: 30px;
-    flex: 1;
-    height: calc(100% - 70px);
-}
-
-/* 左側分區 (占比 35%) */
-.a4-left-zone {
-    width: 35%;
-    border-right: 1px solid #e2e8f0;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* 右側分區 (占比 65%) */
-.a4-right-zone {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* 分區內的章節結構 */
 .a4-block-section h4 {
-    font-size: 12px;
-    color: #0f172a;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #999;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid #0f172a;
-    padding-bottom: 3px;
-    margin-bottom: 8px;
-    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-/* 左區細節：精簡化排版以完美貼合高度 */
-.a4-desc-text {
-    font-size: 11.5px;
-    line-height: 1.6;
-    color: #334155;
-    text-align: justify;
+.a4-desc-text { font-size: 13px; line-height: 1.8; color: #444; }
+
+.a4-work-box { margin-bottom: 25px; }
+
+.a4-work-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+
+.a4-work-top h5 { font-size: 15px; font-weight: 700; color: #111; }
+
+.a4-work-time { font-size: 11px; color: #bbb; font-weight: 600; }
+
+.a4-work-role { font-size: 12px; color: #3b82f6; font-weight: 700; margin-bottom: 8px; }
+
+.a4-work-details { padding-left: 15px; font-size: 12.5px; color: #666; line-height: 1.7; }
+
+/* 培訓與獎項裝飾 */
+.a4-train-row { 
+    background: #f9f9f9; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 10px; 
 }
 
-.a4-skill-tags {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
+.a4-train-row strong { font-size: 13px; color: #222; }
 
-.a4-skill-tags li {
-    font-size: 11px;
-    background: #f1f5f9;
-    color: #334155;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 500;
-}
-
-.a4-traits-list {
-    padding-left: 12px;
-    font-size: 11.5px;
-    color: #475569;
-}
-
-.a4-traits-list li {
-    margin-bottom: 4px;
-}
-
-/* 右區細節：工作經歷緊湊網格 */
-.a4-work-box {
-    margin-bottom: 10px;
-}
-
-.a4-work-box:last-child {
-    margin-bottom: 0;
-}
-
-.a4-work-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.a4-work-top h5 {
-    font-size: 13px;
-    color: #0f172a;
-    font-weight: 700;
-}
-
-.a4-work-top h5 span {
-    font-size: 11.5px;
-    color: #64748b;
-    font-weight: 400;
-}
-
-.a4-work-time {
-    font-size: 11px;
-    color: #64748b;
-    font-variant-numeric: tabular-nums;
-}
-
-.a4-work-role {
-    font-size: 11.5px;
-    color: #2563eb; 
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.a4-work-details {
-    padding-left: 12px;
-    font-size: 11.5px;
-    color: #475569;
-    line-height: 1.5;
-}
-
-.a4-work-details li {
-    margin-bottom: 2px;
-    text-align: justify;
-}
-
-/* 培訓與榮譽微調 */
-.a4-train-row {
-    margin-bottom: 6px;
-    font-size: 11.5px;
-}
-
-.a4-train-row strong {
-    color: #0f172a;
-    font-weight: 600;
-}
-
-.a4-train-row p {
-    color: #52525b;
-    line-height: 1.4;
-}
-
-.a4-medal-line {
-    font-size: 11.5px;
-    color: #334155;
-    margin-bottom: 4px;
+.a4-medal-line { 
+    font-size: 13px; 
+    padding: 10px 0; 
+    border-bottom: 1px solid #f0f0f0; 
+    color: #444;
 }
