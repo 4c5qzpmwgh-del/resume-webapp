@@ -3,42 +3,103 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
 }
 
 body {
-    background-color: #f4f6f9;
+    background-color: #f1f5f9;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 主容器 */
+/* 主應用程式容器 */
 .app-container {
     display: flex;
-    width: 90vw;
-    max-width: 1200px;
-    height: 80vh;
+    width: 95vw;
+    max-width: 1300px;
+    height: 90vh;
     background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
 
-/* 左側主頁導覽 */
+/* 左側主頁導覽選單 */
 .sidebar {
-    width: 30%;
+    width: 25%;
+    min-width: 280px;
     background: #1e293b;
     color: #fff;
-    padding: 40px 20px;
+    padding: 35px 24px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-summary {
-    margin-bottom: 40px;
     text-align: center;
+    margin-bottom: 25px;
+}
+
+.avatar-placeholder {
+    width: 110px;
+    height: 140px;
+    background: #334155;
+    border: 2px dashed #64748b;
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #94a3b8;
+    border-radius: 6px;
+}
+
+.profile-summary h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.profile-summary p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.job-title {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* 聯絡資訊 */
+.contact-info {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 13px;
+}
+
+.contact-info h3 {
+    font-size: 14px;
+    color: #3b82f6;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 4px;
+}
+
+.contact-info p {
+    margin-bottom: 6px;
+    color: #cbd5e1;
 }
 
 .nav-menu {
@@ -46,56 +107,183 @@ body {
 }
 
 .nav-item {
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 14px;
+    color: #cbd5e1;
     transition: all 0.3s ease;
 }
 
 .nav-item:hover, .nav-item.active {
     background: #3b82f6;
-    transform: translateX(5px);
+    color: #fff;
+    transform: translateX(4px);
 }
 
-/* 右側履歷畫布 (翻頁核心) */
+/* 右側履歷畫布區 */
 .content-canvas {
-    width: 70%;
+    width: 75%;
+    background: #cbd5e1;
+    padding: 30px;
     position: relative;
-    background: #fff;
-    padding: 50px;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
 }
 
-/* 履歷單頁基本狀態（隱藏並推到右側） */
+/* 單頁履歷 - 模擬真實 A4 紙張尺寸 */
 .resume-page {
     position: absolute;
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
+    width: 100%;
+    max-width: 794px;
+    aspect-ratio: 1 / 1.4142;
+    background: #ffffff;
+    padding: 50px 45px;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    
     opacity: 0;
-    transform: translateX(50px);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    pointer-events: none; /* 隱藏時不可點擊 */
+    transform: translateX(40px);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    pointer-events: none;
 }
 
-/* 啟用狀態（翻頁秀出） */
 .resume-page.active {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
 }
 
-/* 履歷內容排版 */
-h2 {
-    color: #1e293b;
-    margin-bottom: 10px;
+/* 履歷元件基礎排版 */
+.resume-page h2 {
+    color: #0f172a;
+    font-size: 22px;
+    margin-bottom: 6px;
 }
 
-hr {
+.resume-page hr {
     border: 0;
-    height: 2px;
+    height: 3px;
     background: #3b82f6;
     margin-bottom: 20px;
     width: 50px;
+}
+
+.page-content {
+    color: #334155;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.intro-paragraph {
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+/* 技能區塊排版 */
+.skills-grid {
+    display: flex;
+    gap: 30px;
+}
+
+.skill-block {
+    flex: 1;
+}
+
+.skill-block h3, .edu-block h3, .awards-block h3 {
+    font-size: 16px;
+    color: #1e293b;
+    border-left: 4px solid #3b82f6;
+    padding-left: 8px;
+    margin-bottom: 12px;
+}
+
+.skill-block ul {
+    list-style-type: none;
+}
+
+.skill-block li {
+    margin-bottom: 8px;
+    background: #f8fafc;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 工作經歷排版 */
+.exp-item {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 15px;
+}
+
+.exp-item:last-child {
+    border-bottom: none;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exp-header h3 {
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.exp-date {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.exp-title {
+    color: #3b82f6;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.exp-item ul {
+    padding-left: 18px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.exp-item li {
+    margin-bottom: 4px;
+}
+
+/* 榮譽與獎項 */
+.award-item {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 0 6px 6px 0;
+}
+
+.award-title {
+    font-weight: 600;
+    color: #166534;
+    font-size: 15px;
+}
+
+.award-title span {
+    font-weight: 400;
+    color: #15803d;
+    font-size: 13px;
+    float: right;
+}
+
+.award-desc {
+    font-size: 13px;
+    color: #166534;
+    margin-top: 4px;
 }
