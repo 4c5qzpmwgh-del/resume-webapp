@@ -255,7 +255,6 @@ body {
 
 /* ==========================================================================
    6. 📱 手機版 RWD 響應式佈局 (Responsive Web Design)
-   當螢幕寬度小於 850px 時，自動切換為手機模式
    ========================================================================== */
 @media screen and (max-width: 850px) {
     body { background: #f4f3f0; }
@@ -278,11 +277,23 @@ body {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .profile-summary { margin-bottom: 15px; }
+    .profile-summary { margin-bottom: 10px; }
     .profile-summary h2 { font-size: 26px; }
     
-    /* 隱藏聯絡資訊以節省手機螢幕高度 */
-    .contact-info { display: none; }
+    /* 修正：恢復顯示聯絡資訊，並改為緊湊的橫向排列 */
+    .contact-info { 
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 15px;
+        margin: 0 0 15px 0;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .contact-info h3 { display: none; } /* 隱藏 System.Contact 標題節省空間 */
+    .contact-info p { 
+        margin: 0; 
+        font-size: 11px; 
+    }
 
     /* 手機版導覽列：改為橫向滑動 */
     .nav-menu {
@@ -294,12 +305,11 @@ body {
         gap: 15px;
     }
 
-    /* 隱藏原生捲軸但保持可滑動 */
     .nav-menu::-webkit-scrollbar { display: none; }
 
     .nav-item { padding: 5px; font-size: 13px; }
     .nav-item.active { padding-left: 5px; }
-    .nav-item.active::before { display: none; /* 移除箭頭標記 */ }
+    .nav-item.active::before { display: none; }
     .nav-item.a4-btn { margin-top: 0; border: none; padding: 5px; }
 
     /* 手機版內容畫布 */
@@ -312,20 +322,17 @@ body {
         box-shadow: none;
     }
 
-    /* 釋放 A4 強制高度限制，讓手機能夠往下自然滾動 */
     .a4-integrated-layout {
         max-height: none !important;
         overflow-y: auto !important;
         padding: 30px 25px;
     }
 
-    /* 將 A4 雙欄網格改成「單欄上下堆疊」 */
     .a4-split-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
-    /* 手機排版細節微調 */
     .a4-header { flex-direction: column; align-items: flex-start; gap: 10px; }
     .a4-contact-box { text-align: left; }
     .skills-grid { flex-direction: column; gap: 30px; }
