@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* 改用深色科技感漸層背景 */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ body {
     max-width: 1400px;
     height: 90vh;
     background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(20px); /* 磨砂玻璃效果 */
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -86,7 +86,7 @@ body {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* 聯絡資訊優化 */
+/* 聯絡資訊 */
 .contact-info {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -112,10 +112,6 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-}
-
-.contact-info p:last-child {
-    margin-bottom: 0;
 }
 
 /* 導覽選單 */
@@ -152,22 +148,22 @@ body {
 /* 右側履歷畫布區 */
 .content-canvas {
     width: 75%;
-    background: #0f172a; /* 改為高質感深藍底，襯托白色 A4 紙張 */
+    background: #0f172a;
     padding: 40px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    overflow: hidden; /* 畫布本身不滾動 */
+    overflow: hidden;
 }
 
-/* 單頁履歷 - 模擬真實 A4 紙張尺寸與防溢出優化 */
+/* 單頁履歷 - 內置防溢出滾動 */
 .resume-page {
     position: absolute;
     width: 100%;
     max-width: 794px;
     height: 100%;
-    max-height: 1123px; /* A4 標準網頁高度 */
+    max-height: 1123px;
     aspect-ratio: 1 / 1.4142;
     background: #ffffff;
     padding: 55px 50px;
@@ -175,17 +171,15 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
     
-    /* 核心修正：內容超出時，在紙張內部提供滑順的滾動條 */
-    overflow-y: auto; 
-    scrollbar-width: thin; /* Firefox 瘦滾動條 */
+    overflow-y: auto;
+    scrollbar-width: thin;
     
     opacity: 0;
-    transform: translateY(20px); /* 改為優雅的向上淡入 */
+    transform: translateY(20px);
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
     pointer-events: none;
 }
 
-/* 針對 Webkit 瀏覽器（Chrome, Edge, Safari）優化紙張內部滾動條樣式 */
 .resume-page::-webkit-scrollbar {
     width: 6px;
 }
@@ -196,9 +190,6 @@ body {
     background: #cbd5e1;
     border-radius: 4px;
 }
-.resume-page::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
 
 .resume-page.active {
     opacity: 1;
@@ -206,13 +197,12 @@ body {
     pointer-events: auto;
 }
 
-/* 履歷元件基礎排版 */
+/* 履歷基礎元件 */
 .resume-page h2 {
     color: #0f172a;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 6px;
-    letter-spacing: 0.5px;
 }
 
 .resume-page hr {
@@ -233,10 +223,10 @@ body {
 .intro-paragraph {
     margin-bottom: 20px;
     text-align: justify;
-    text-indent: 2em; /* 首行縮進，排版更像正式報告 */
+    text-indent: 2em;
 }
 
-/* 技能區塊排版 */
+/* 技能排版 */
 .skills-grid {
     display: flex;
     gap: 35px;
@@ -246,7 +236,7 @@ body {
     flex: 1;
 }
 
-.skill-block h3, .edu-block h3, .awards-block h3 {
+.skill-block h3, .edu-block h3, .awards-block h3, .training-block h3 {
     font-size: 16px;
     color: #0f172a;
     font-weight: 700;
@@ -271,7 +261,7 @@ body {
     border-left: 3px solid #cbd5e1;
 }
 
-/* 工作經歷排版（微調緊湊度以適應 A4） */
+/* 工作經歷排版 */
 .exp-item {
     margin-bottom: 22px;
     border-bottom: 1px dashed #e2e8f0;
@@ -280,8 +270,6 @@ body {
 
 .exp-item:last-child {
     border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .exp-header {
@@ -321,17 +309,38 @@ body {
 
 .exp-item li {
     margin-bottom: 6px;
-    text-align: justify;
+}
+
+/* 🏢 培訓專區卡片樣式 */
+.training-item {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-left: 4px solid #3b82f6;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.training-title {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.training-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+    line-height: 1.6;
 }
 
 /* 榮譽與獎項 */
 .award-item {
     background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
     border-left: 4px solid #22c55e;
-    padding: 14px 18px;
-    margin-bottom: 14px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .award-title {
@@ -353,6 +362,5 @@ body {
 .award-desc {
     font-size: 13px;
     color: #166534;
-    margin-top: 6px;
-    opacity: 0.9;
+    margin-top: 4px;
 }
