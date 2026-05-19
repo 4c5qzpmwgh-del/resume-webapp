@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式翻頁履歷 Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- 左側主頁導覽選單 -->
+        <nav class="sidebar">
+            <div class="profile-summary">
+                <h2>我的履歷 App</h2>
+                <p>請選擇想查看的章節</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-target="page-profile">個人簡介</li>
+                <li class="nav-item" data-target="page-skills">專業技能</li>
+                <li class="nav-item" data-target="page-experience">工作經歷</li>
+                <li class="nav-item" data-target="page-projects">專案作品</li>
+            </ul>
+        </nav>
+
+        <!-- 右側翻頁式內容區 -->
+        <main class="content-canvas">
+            
+            <!-- 頁面 1: 個人簡介 -->
+            <section id="page-profile" class="resume-page active">
+                <h2>關於我 / Profile</h2>
+                <hr>
+                <p>這裡填寫你的個人簡介。例如：具備豐富開發經驗的軟體工程師，專注於打造高效、流暢的 Web 應用程式...</p>
+            </section>
+
+            <!-- 頁面 2: 專業技能 -->
+            <section id="page-skills" class="resume-page">
+                <h2>專業技能 / Skills</h2>
+                <hr>
+                <ul>
+                    <li><strong>Languages:</strong> Python, Rust, JavaScript, HTML/CSS</li>
+                    <li><strong>Backend & Tools:</strong> Git, Supabase, Node.js</li>
+                </ul>
+            </section>
+
+            <!-- 頁面 3: 工作經歷 -->
+            <section id="page-experience" class="resume-page">
+                <h2>工作經歷 / Experience</h2>
+                <hr>
+                <div class="exp-item">
+                    <h3>高級前端工程師 @ 某科技公司</h3>
+                    <p class="date">2024 - 現在</p>
+                    <p>負責核心 Web App 的架構設計與效能優化。</p>
+                </div>
+            </section>
+
+            <!-- 頁面 4: 專案作品 -->
+            <section id="page-projects" class="resume-page">
+                <h2>專案作品 / Projects</h2>
+                <hr>
+                <p>展示你引以為傲的專案，例如自動化工具、財務追蹤系統等。</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

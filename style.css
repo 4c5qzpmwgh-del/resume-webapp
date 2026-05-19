@@ -1,0 +1,101 @@
+/* 基礎樣式重設 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 主容器 */
+.app-container {
+    display: flex;
+    width: 90vw;
+    max-width: 1200px;
+    height: 80vh;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* 左側主頁導覽 */
+.sidebar {
+    width: 30%;
+    background: #1e293b;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-summary {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: #3b82f6;
+    transform: translateX(5px);
+}
+
+/* 右側履歷畫布 (翻頁核心) */
+.content-canvas {
+    width: 70%;
+    position: relative;
+    background: #fff;
+    padding: 50px;
+    overflow: hidden;
+}
+
+/* 履歷單頁基本狀態（隱藏並推到右側） */
+.resume-page {
+    position: absolute;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    opacity: 0;
+    transform: translateX(50px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    pointer-events: none; /* 隱藏時不可點擊 */
+}
+
+/* 啟用狀態（翻頁秀出） */
+.resume-page.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* 履歷內容排版 */
+h2 {
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: #3b82f6;
+    margin-bottom: 20px;
+    width: 50px;
+}
