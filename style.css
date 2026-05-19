@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. 基礎重設與頂級字型排版 (Premium Typography)
+   1. 基礎重設與頂級字型 (Swiss Typography)
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #f8fafc; /* 乾淨、明亮的極淺冷灰桌面 */
+    background-color: #f8fafc; /* 最外層乾淨的冷灰背景 */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,31 +19,32 @@ body {
 }
 
 /* ==========================================================================
-   2. 主應用程式容器 (極簡結構，無多餘裝飾)
+   2. 主應用程式容器 (一體化俐落佈局)
    ========================================================================== */
 .app-container {
     display: flex;
     width: 95vw;
-    max-width: 1350px;
+    max-width: 1400px;
     height: 88vh;
-    background: #ffffff;
+    background: #ffffff; /* 純白底色 */
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
     overflow: hidden;
 }
 
 /* ==========================================================================
-   3. 左側側邊欄 (啞光碳黑高冷風格)
+   3. 左側側邊欄 (全新改版：冷調淺灰，徹底告別舊版深藍與色塊)
    ========================================================================== */
 .sidebar {
-    width: 24%;
-    min-width: 280px;
-    background: #111213; /* 極具內斂感的頂級碳黑 */
-    color: #ffffff;
-    padding: 45px 30px;
+    width: 25%;
+    min-width: 290px;
+    background: #f8fafc; /* 改為與右側呼應的清爽冷灰 */
+    color: #0f172a;      /* 深石墨碳黑文字 */
+    padding: 50px 35px;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #e2e8f0; /* 純靠一條細線分割 */
 }
 
 .profile-summary {
@@ -51,179 +52,150 @@ body {
 }
 
 .profile-summary h2 {
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0f172a;
     margin-bottom: 4px;
-    color: #ffffff;
 }
 
 .profile-summary p {
     color: #64748b;
     font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
 }
 
+/* 徹底移除舊版的藍色膠囊背景，改為純文字排版 */
 .job-title {
-    display: inline-block;
-    font-size: 12px;
-    color: #f1f5f9;
-    background: #2563eb; /* 唯一的品牌原色，用於點綴點睛 */
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-weight: 500;
+    font-size: 13px;
+    color: #0f172a;
+    font-weight: 600;
+    border-left: 3px solid #0f172a; /* 改用左側俐落黑線點綴 */
+    padding-left: 8px;
     letter-spacing: 0.5px;
 }
 
-/* 聯絡資訊 (文字排版主義，移除大圖標與雜亂色塊) */
+/* 聯絡資訊 (文字主義，無框線、無漸層、無大圖標) */
 .contact-info {
-    margin-bottom: 45px;
-    font-size: 13px;
-    border-top: 1px solid #27272a;
-    padding-top: 20px;
+    margin-bottom: 50px;
+    font-size: 13.5px;
 }
 
 .contact-info h3 {
     font-size: 11px;
-    color: #a1a1aa;
+    color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .contact-info p {
-    margin-bottom: 8px;
-    color: #d4d4d8;
-    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: #334155;
+    font-variant-numeric: tabular-nums;
 }
 
-/* 導覽選單 (極簡線條切換) */
+/* 導覽選單 (俐落的黑灰文字切換) */
 .nav-menu {
     list-style: none;
-    margin-top: auto; /* 推至底部 */
+    margin-top: auto; 
 }
 
 .nav-item {
     padding: 12px 0;
-    font-size: 14px;
-    color: #71717a;
+    font-size: 14.5px;
+    color: #94a3b8; /* 未激活時為淺灰 */
     cursor: pointer;
-    transition: color 0.25s ease;
-    position: relative;
-    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .nav-item:hover {
-    color: #e4e4e7;
+    color: #475569;
 }
 
 .nav-item.active {
-    color: #ffffff;
-    font-weight: 500;
-}
-
-/* 啟用狀態的左側俐落短線 */
-.nav-item.active::before {
-    content: "";
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 14px;
-    background: #2563eb;
-    border-radius: 2px;
+    color: #0f172a; /* 激活時為極深的純黑色 */
+    font-weight: 700;
 }
 
 /* ==========================================================================
-   4. 右側內容畫布區 (沉浸式雜誌排版環境)
+   4. 右側內容畫布區 (與 A4 完全一體化的雜誌閱讀感)
    ========================================================================== */
 .content-canvas {
-    width: 76%;
-    background: #fdfdfd; /* 與最外層區隔，營造舒適乾淨的閱讀環境 */
-    padding: 50px;
+    width: 75%;
+    background: #ffffff; /* 讓紙張與畫布同色，消除突兀的邊框差 */
+    padding: 60px 80px;
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow: hidden;
-    border-left: 1px solid #f1f5f9;
 }
 
-/* 單頁履歷 - 真實 A4 紙張與優雅的內部滾動機制 */
+/* 單頁履歷 - 網頁標準 A4 排版與舒適的內部防溢出滾動 */
 .resume-page {
     position: absolute;
     width: 100%;
-    max-width: 760px;
+    max-width: 800px;
     height: 100%;
-    max-height: 1080px;
-    aspect-ratio: 1 / 1.4142;
-    background: #ffffff;
-    padding: 60px 55px;
     box-sizing: border-box;
-    border: 1px solid #f1f5f9; /* 極細的紙張邊框線 */
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02); /* 極輕柔的天然陰影 */
+    background: #ffffff;
     
-    /* 防溢出優化滾動條 */
+    /* 內部溢出滾動機制 */
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none; /* 隱藏突兀的滾動條 */
     
     opacity: 0;
-    transform: scale(0.98); /* 優雅的微縮放淡入，取代突兀的位移 */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    transform: translateY(10px);
+    transition: transform 0.35s cubic-bezier(0.215, 0.610, 0.355, 1), opacity 0.35s ease;
     pointer-events: none;
 }
 
-/* 隱藏或極簡化滾動條樣式 */
+/* 針對 Chrome 等瀏覽器隱藏網頁滾動條 */
 .resume-page::-webkit-scrollbar {
-    width: 4px;
-}
-.resume-page::-webkit-scrollbar-track {
-    background: transparent;
-}
-.resume-page::-webkit-scrollbar-thumb {
-    background: #e4e4e7;
-    border-radius: 2px;
+    display: none;
 }
 
 .resume-page.active {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
     pointer-events: auto;
 }
 
 /* ==========================================================================
-   5. 履歷內頁排版內容 (Editorial Layout)
+   5. 履歷內頁排版內容 (Swiss Bauhaus Grid)
    ========================================================================== */
 .resume-page h2 {
-    color: #111213;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 1px solid #111213; /* 用純黑細線取代原本粗的藍色 HR 線 */
-    padding-bottom: 10px;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #0f172a; /* 使用經典黑粗線劃分章節 */
+    padding-bottom: 12px;
 }
 
 .page-content {
-    color: #3f3f46;
+    color: #334155;
     line-height: 1.8;
-    font-size: 14.5px;
+    font-size: 15px;
 }
 
 .intro-paragraph {
     margin-bottom: 24px;
     text-align: justify;
-    color: #27272a;
+    color: #1e293b;
 }
 
-/* 專業技能與特質排版 */
+/* 技能分欄 */
 .skills-grid {
     display: flex;
-    gap: 50px;
+    gap: 60px;
 }
 
 .skill-block {
@@ -232,9 +204,9 @@ body {
 
 .skill-block h3, .edu-block h3, .awards-block h3, .training-block h3 {
     font-size: 14px;
-    color: #111213;
-    font-weight: 600;
-    margin-bottom: 16px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 18px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -245,24 +217,15 @@ body {
 
 .skill-block li {
     margin-bottom: 12px;
-    font-size: 14px;
-    color: #52525b;
-    display: flex;
-    align-items: center;
+    font-size: 14.5px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9; /* 用淡淡的底線做橫向視覺導引 */
+    padding-bottom: 6px;
 }
 
-/* 自訂清單前綴，取代粗糙的預設點點或背景框 */
-.skill-block li::before {
-    content: "—";
-    color: #a1a1aa;
-    margin-right: 10px;
-    font-weight: 300;
-}
-
-/* 工作經歷排版 (高級時間線與文字結構) */
+/* 工作經歷排版 (乾淨的時間軸與俐落字體結構) */
 .exp-item {
-    margin-bottom: 30px;
-    position: relative;
+    margin-bottom: 35px;
 }
 
 .exp-item:last-child {
@@ -273,46 +236,45 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .exp-header h3 {
-    font-size: 15px;
-    color: #111213;
-    font-weight: 600;
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 700;
 }
 
 .exp-date {
-    color: #71717a;
-    font-size: 12px;
+    color: #64748b;
+    font-size: 13px;
     font-variant-numeric: tabular-nums;
-    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .exp-title {
-    color: #2563eb; /* 核心原色點綴職稱 */
-    font-weight: 500;
-    font-size: 13.5px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+    color: #475569;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .exp-item ul {
     padding-left: 15px;
-    font-size: 13.5px;
-    color: #52525b;
+    font-size: 14px;
+    color: #334155;
 }
 
 .exp-item li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     text-align: justify;
 }
 
-/* 專業管理培訓與榮譽區塊 */
+/* 專業培訓與榮譽區塊 (徹底移除原本的綠色和灰色漸層方塊) */
 .training-item, .award-item {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #f4f4f5; /* 輕量細線分割 */
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0; /* 使用微米級極細灰線分割，絕不突兀 */
 }
 
 .training-item:last-child, .award-item:last-child {
@@ -322,21 +284,22 @@ body {
 }
 
 .training-title, .award-title {
-    font-weight: 600;
-    color: #111213;
-    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 15px;
 }
 
 .award-title span {
-    font-weight: 400;
-    color: #71717a;
-    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    font-size: 13px;
     float: right;
 }
 
 .training-desc, .award-desc {
-    font-size: 13px;
-    color: #71717a;
-    margin-top: 4px;
+    font-size: 13.5px;
+    color: #475569;
+    margin-top: 6px;
     text-align: justify;
+    line-height: 1.6;
 }
