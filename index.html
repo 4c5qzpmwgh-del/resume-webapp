@@ -1,358 +1,187 @@
-/* 基礎樣式重設 */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施孟圻 Meng-Chi Shih - 互動式履歷</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* 改用深色科技感漸層背景 */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="profile-summary">
+                <div class="avatar-placeholder">📷 請在此插入照片</div>
+                <h2>施孟圻</h2>
+                <p>Meng-Chi Shih</p>
+                <span class="job-title">售後工程副組長</span>
+            </div>
+            
+            <div class="contact-info">
+                <h3>聯絡資訊</h3>
+                <p>📞 0976-067-935</p>
+                <p>✉️ mengchi1570@gmail.com</p>
+                <p>📍 新北市板橋區</p>
+            </div>
 
-/* 主應用程式容器 */
-.app-container {
-    display: flex;
-    width: 95vw;
-    max-width: 1400px;
-    height: 90vh;
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(20px); /* 磨砂玻璃效果 */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-}
+            <ul class="nav-menu">
+                <li class="nav-item active" data-target="page-profile">個人簡介</li>
+                <li class="nav-item" data-target="page-skills">專業與特質</li>
+                <li class="nav-item" data-target="page-experience">工作經歷</li>
+                <li class="nav-item" data-target="page-education">學歷與獎項</li>
+            </ul>
+        </nav>
 
-/* 左側主頁導覽選單 */
-.sidebar {
-    width: 25%;
-    min-width: 290px;
-    background: #0f172a;
-    color: #fff;
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
+        <main class="content-canvas">
+            
+            <section id="page-profile" class="resume-page active">
+                <h2>個人簡介 / Profile</h2>
+                <hr>
+                <div class="page-content">
+                    <p class="intro-paragraph">
+                        於售後服務產業深耕 <strong>8.5 年</strong>，職涯橫跨 B2C 客戶服務、跨國三方金流產品管理，以及科技業售後工程體系。自 2019 年返台加入貫傑科技至今約 7 年，從售後工程師逐步晉升至資深工程師、副組長，建立穩固的專業基礎與管理經驗。
+                    </p>
+                    <p class="intro-paragraph">
+                        專注於團隊夥伴的情感梳理與心理層面輔導，於公於私兼顧團隊向心力。工作態度穩定、責任感強，是夥伴信賴的引路人；私下則展現高度親和力，擅長以幽默感凝聚團隊氣氛。
+                    </p>
+                </div>
+            </section>
 
-.profile-summary {
-    text-align: center;
-    margin-bottom: 30px;
-}
+            <section id="page-skills" class="resume-page">
+                <h2>專業與特質 / Skills & Traits</h2>
+                <hr>
+                <div class="page-content">
+                    <div class="skills-grid">
+                        <div class="skill-block">
+                            <h3>🛠️ 專業技能</h3>
+                            <ul>
+                                <li>售後工程管理</li>
+                                <li>客戶服務與支援</li>
+                                <li>技術問題排除</li>
+                                <li>團隊協調與帶領</li>
+                                <li>員工心理輔導</li>
+                                <li>跨部門溝通</li>
+                                <li>B2C 客戶服務</li>
+                                <li>三方金流產品管理</li>
+                            </ul>
+                        </div>
+                        <div class="skill-block">
+                            <h3>✦ 個人特質</h3>
+                            <ul>
+                                <li>穩定度高</li>
+                                <li>高度責任感</li>
+                                <li>情感梳理專家</li>
+                                <li>公私分明</li>
+                                <li>團隊凝聚力佳</li>
+                            </ul>
+                            <h3 style="margin-top: 25px;">🗣️ 語言能力</h3>
+                            <ul>
+                                <li>中文（母語）</li>
+                                <li>英文（基礎溝通）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-.avatar-placeholder {
-    width: 110px;
-    height: 140px;
-    background: #1e293b;
-    border: 2px dashed #3b82f6;
-    margin: 0 auto 15px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #64748b;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
+            <section id="page-experience" class="resume-page">
+                <h2>工作經歷 / Experience</h2>
+                <hr>
+                <div class="page-content">
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2023/11 - 現任</span>
+                        </div>
+                        <p class="exp-title">售後工程部副組長</p>
+                        <ul>
+                            <li>帶領售後工程團隊，負責部門營運、人員調度與績效管理。</li>
+                            <li>建立團隊內部溝通機制，強化夥伴間的情感連結與向心力。</li>
+                            <li>協助處理重大客訴與技術疑難案件，確保客戶滿意度。</li>
+                            <li>跨部門協作，串連業務、研發與客服資源以提升服務品質。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2021/03 - 2023/11</span>
+                        </div>
+                        <p class="exp-title">資深售後工程師</p>
+                        <ul>
+                            <li>負責複雜技術案件的問題排除與系統性分析。</li>
+                            <li>協助培訓新進工程師，建立標準化工作流程與知識庫。</li>
+                            <li>2022 年獲頒公司唯一一座「最佳進步獎」。</li>
+                        </ul>
+                    </div>
 
-.profile-summary h2 {
-    color: #fff;
-    font-size: 26px;
-    margin-bottom: 6px;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>貫傑科技</h3>
+                            <span class="exp-date">2019/06 - 2021/03</span>
+                        </div>
+                        <p class="exp-title">售後工程師</p>
+                        <ul>
+                            <li>處理客戶端產品安裝、維修與技術支援。</li>
+                            <li>快速累積產品專業知識與第一線客戶溝通經驗。</li>
+                        </ul>
+                    </div>
 
-.profile-summary p {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>Boar Technology（泰國）</h3>
+                            <span class="exp-date">2018/12 - 2019/06</span>
+                        </div>
+                        <p class="exp-title">三方金流產品經理 (PM)</p>
+                        <ul>
+                            <li>派駐泰國，負責三方金流產品的需求規劃與專案管理。</li>
+                            <li>跨國團隊協作，累積跨文化溝通與國際商務經驗。</li>
+                        </ul>
+                    </div>
 
-.job-title {
-    display: inline-block;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: #fff;
-    font-size: 13px;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h3>益智博</h3>
+                            <span class="exp-date">2018/01 - 2018/12</span>
+                        </div>
+                        <p class="exp-title">客服專員</p>
+                        <ul>
+                            <li>負責 B2C 客戶服務，建立紮實的客戶溝通與問題處理基礎。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-/* 聯絡資訊優化 */
-.contact-info {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    font-size: 13px;
-}
+            <section id="page-education" class="resume-page">
+                <h2>學歷與榮譽 / Education & Awards</h2>
+                <hr>
+                <div class="page-content">
+                    <div class="edu-block">
+                        <h3>🎓 教育背景</h3>
+                        <div class="exp-header">
+                            <p><strong>輔仁大學</strong> - 餐飲管理學系</p>
+                        </div>
+                    </div>
 
-.contact-info h3 {
-    font-size: 13px;
-    color: #3b82f6;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+                    <div class="awards-block" style="margin-top: 40px;">
+                        <h3>🏆 獎項紀錄</h3>
+                        
+                        <div class="award-item">
+                            <p class="award-title">🏆 年度最佳員工獎 ｜ 貫傑科技 <span>(2024 年)</span></p>
+                            <p class="award-desc">綜合績效表現與團隊貢獻獲全公司肯定。</p>
+                        </div>
 
-.contact-info p {
-    margin-bottom: 8px;
-    color: #cbd5e1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+                        <div class="award-item">
+                            <p class="award-title">🏆 最佳進步獎 ｜ 貫傑科技 <span>(2022 年)</span></p>
+                            <p class="award-desc">公司當年度唯一獲獎者，肯定個人成長與專業躍進。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-.contact-info p:last-child {
-    margin-bottom: 0;
-}
+        </main>
+    </div>
 
-/* 導覽選單 */
-.nav-menu {
-    list-style: none;
-}
-
-.nav-item {
-    padding: 14px 18px;
-    margin-bottom: 10px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #94a3b8;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    color: #fff;
-    transform: translateX(4px);
-}
-
-.nav-item.active {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #3b82f6;
-    font-weight: 600;
-    transform: translateX(4px);
-}
-
-/* 右側履歷畫布區 */
-.content-canvas {
-    width: 75%;
-    background: #0f172a; /* 改為高質感深藍底，襯托白色 A4 紙張 */
-    padding: 40px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden; /* 畫布本身不滾動 */
-}
-
-/* 單頁履歷 - 模擬真實 A4 紙張尺寸與防溢出優化 */
-.resume-page {
-    position: absolute;
-    width: 100%;
-    max-width: 794px;
-    height: 100%;
-    max-height: 1123px; /* A4 標準網頁高度 */
-    aspect-ratio: 1 / 1.4142;
-    background: #ffffff;
-    padding: 55px 50px;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    box-sizing: border-box;
-    
-    /* 核心修正：內容超出時，在紙張內部提供滑順的滾動條 */
-    overflow-y: auto; 
-    scrollbar-width: thin; /* Firefox 瘦滾動條 */
-    
-    opacity: 0;
-    transform: translateY(20px); /* 改為優雅的向上淡入 */
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-    pointer-events: none;
-}
-
-/* 針對 Webkit 瀏覽器（Chrome, Edge, Safari）優化紙張內部滾動條樣式 */
-.resume-page::-webkit-scrollbar {
-    width: 6px;
-}
-.resume-page::-webkit-scrollbar-track {
-    background: transparent;
-}
-.resume-page::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-.resume-page::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-.resume-page.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* 履歷元件基礎排版 */
-.resume-page h2 {
-    color: #0f172a;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-}
-
-.resume-page hr {
-    border: 0;
-    height: 4px;
-    background: #3b82f6;
-    margin-bottom: 25px;
-    width: 60px;
-    border-radius: 2px;
-}
-
-.page-content {
-    color: #334155;
-    line-height: 1.75;
-    font-size: 15px;
-}
-
-.intro-paragraph {
-    margin-bottom: 20px;
-    text-align: justify;
-    text-indent: 2em; /* 首行縮進，排版更像正式報告 */
-}
-
-/* 技能區塊排版 */
-.skills-grid {
-    display: flex;
-    gap: 35px;
-}
-
-.skill-block {
-    flex: 1;
-}
-
-.skill-block h3, .edu-block h3, .awards-block h3 {
-    font-size: 16px;
-    color: #0f172a;
-    font-weight: 700;
-    border-left: 4px solid #3b82f6;
-    padding-left: 10px;
-    margin-bottom: 14px;
-    margin-top: 5px;
-}
-
-.skill-block ul {
-    list-style-type: none;
-}
-
-.skill-block li {
-    margin-bottom: 10px;
-    background: #f1f5f9;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #334155;
-    font-weight: 500;
-    border-left: 3px solid #cbd5e1;
-}
-
-/* 工作經歷排版（微調緊湊度以適應 A4） */
-.exp-item {
-    margin-bottom: 22px;
-    border-bottom: 1px dashed #e2e8f0;
-    padding-bottom: 18px;
-}
-
-.exp-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-.exp-header h3 {
-    font-size: 16px;
-    color: #0f172a;
-    font-weight: 700;
-}
-
-.exp-date {
-    color: #64748b;
-    font-size: 13px;
-    font-weight: 500;
-    background: #f1f5f9;
-    padding: 2px 10px;
-    border-radius: 12px;
-}
-
-.exp-title {
-    color: #2563eb;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.exp-item ul {
-    padding-left: 18px;
-    font-size: 14px;
-    color: #475569;
-}
-
-.exp-item li {
-    margin-bottom: 6px;
-    text-align: justify;
-}
-
-/* 榮譽與獎項 */
-.award-item {
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-left: 4px solid #22c55e;
-    padding: 14px 18px;
-    margin-bottom: 14px;
-    border-radius: 0 8px 8px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-.award-title {
-    font-weight: 700;
-    color: #14532d;
-    font-size: 15px;
-}
-
-.award-title span {
-    font-weight: 500;
-    color: #166534;
-    font-size: 13px;
-    float: right;
-    background: rgba(255,255,255,0.6);
-    padding: 1px 8px;
-    border-radius: 10px;
-}
-
-.award-desc {
-    font-size: 13px;
-    color: #166534;
-    margin-top: 6px;
-    opacity: 0.9;
-}
+    <script src="app.js"></script>
+</body>
+</html>
