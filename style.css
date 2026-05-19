@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* 整個網頁的最外層深色科技漸層 */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -21,9 +21,9 @@ body {
     width: 95vw;
     max-width: 1400px;
     height: 90vh;
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px); /* 磨砂玻璃效果 */
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -33,7 +33,7 @@ body {
 .sidebar {
     width: 25%;
     min-width: 290px;
-    background: #0f172a;
+    background: #0f172a; /* 穩重的極深藍 */
     color: #fff;
     padding: 40px 24px;
     display: flex;
@@ -86,7 +86,7 @@ body {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* 聯絡資訊 */
+/* 聯絡資訊優化 */
 .contact-info {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -112,6 +112,10 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
 }
 
 /* 導覽選單 */
@@ -145,41 +149,43 @@ body {
     transform: translateX(4px);
 }
 
-/* 右側履歷畫布區 */
+/* 右側履歷畫布區 (襯托 A4 紙張的「桌面環境」) */
 .content-canvas {
     width: 75%;
-    background: #0f172a;
-    padding: 40px;
+    background: #f1f5f9; /* 關鍵修正 1：改用高級的溫和淺冷灰，完美襯托純白紙張與深色側邊欄 */
+    padding: 40px; /* 關鍵修正 2：四周均等留白，確保紙張上下不會頂死邊界 */
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; /* 關鍵修正 3：改為 center，讓 A4 紙張在任何解析度下都完美垂直/水平置中 */
     overflow: hidden;
 }
 
-/* 單頁履歷 - 內置防溢出滾動 */
+/* 單頁履歷 - 模擬真實 A4 紙張尺寸與內部防溢出滾動 */
 .resume-page {
     position: absolute;
     width: 100%;
     max-width: 794px;
     height: 100%;
-    max-height: 1123px;
+    max-height: 1123px; /* A4 標準比例上限 */
     aspect-ratio: 1 / 1.4142;
-    background: #ffffff;
+    background: #ffffff; /* 純白紙張 */
     padding: 55px 50px;
     border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12), 0 1px 8px rgba(15, 23, 42, 0.04); /* 優化陰影，讓紙張微微浮起不突兀 */
     box-sizing: border-box;
     
-    overflow-y: auto;
+    /* 內部溢出滾動機制 */
+    overflow-y: auto; 
     scrollbar-width: thin;
     
     opacity: 0;
-    transform: translateY(20px);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    transform: translateY(25px); /* 改為優雅的向上微調淡入 */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     pointer-events: none;
 }
 
+/* 針對內置滾動條樣式優化 */
 .resume-page::-webkit-scrollbar {
     width: 6px;
 }
@@ -190,6 +196,9 @@ body {
     background: #cbd5e1;
     border-radius: 4px;
 }
+.resume-page::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
 
 .resume-page.active {
     opacity: 1;
@@ -197,12 +206,13 @@ body {
     pointer-events: auto;
 }
 
-/* 履歷基礎元件 */
+/* 履歷元件基礎排版 */
 .resume-page h2 {
     color: #0f172a;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 6px;
+    letter-spacing: 0.5px;
 }
 
 .resume-page hr {
@@ -226,7 +236,7 @@ body {
     text-indent: 2em;
 }
 
-/* 技能排版 */
+/* 技能區塊排版 */
 .skills-grid {
     display: flex;
     gap: 35px;
@@ -311,14 +321,13 @@ body {
     margin-bottom: 6px;
 }
 
-/* 🏢 培訓專區卡片樣式 */
+/* 培訓專區卡片樣式 */
 .training-item {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border-left: 4px solid #3b82f6;
     padding: 12px 16px;
     margin-bottom: 12px;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
 }
 
 .training-title {
