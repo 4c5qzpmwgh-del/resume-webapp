@@ -7,188 +7,239 @@
 }
 
 body {
-    background-color: #f1f5f9;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* 改用深色科技感漸層背景 */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 /* 主應用程式容器 */
 .app-container {
     display: flex;
     width: 95vw;
-    max-width: 1300px;
+    max-width: 1400px;
     height: 90vh;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px); /* 磨砂玻璃效果 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
 /* 左側主頁導覽選單 */
 .sidebar {
     width: 25%;
-    min-width: 280px;
-    background: #1e293b;
+    min-width: 290px;
+    background: #0f172a;
     color: #fff;
-    padding: 35px 24px;
+    padding: 40px 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .profile-summary {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .avatar-placeholder {
     width: 110px;
     height: 140px;
-    background: #334155;
-    border: 2px dashed #64748b;
+    background: #1e293b;
+    border: 2px dashed #3b82f6;
     margin: 0 auto 15px auto;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    color: #94a3b8;
-    border-radius: 6px;
+    color: #64748b;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .profile-summary h2 {
     color: #fff;
-    font-size: 24px;
-    margin-bottom: 4px;
-    letter-spacing: 1px;
+    font-size: 26px;
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
 .profile-summary p {
     color: #94a3b8;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .job-title {
     display: inline-block;
-    background: #3b82f6;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     color: #fff;
     font-size: 13px;
-    padding: 4px 12px;
+    padding: 6px 16px;
     border-radius: 20px;
     font-weight: 500;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* 聯絡資訊 */
+/* 聯絡資訊優化 */
 .contact-info {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     font-size: 13px;
 }
 
 .contact-info h3 {
-    font-size: 14px;
+    font-size: 13px;
     color: #3b82f6;
-    margin-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .contact-info p {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* 導覽選單 */
 .nav-menu {
     list-style: none;
 }
 
 .nav-item {
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    color: #cbd5e1;
-    transition: all 0.3s ease;
+    color: #94a3b8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-item:hover, .nav-item.active {
-    background: #3b82f6;
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.03);
     color: #fff;
+    transform: translateX(4px);
+}
+
+.nav-item.active {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+    font-weight: 600;
     transform: translateX(4px);
 }
 
 /* 右側履歷畫布區 */
 .content-canvas {
     width: 75%;
-    background: #cbd5e1;
-    padding: 30px;
+    background: #0f172a; /* 改為高質感深藍底，襯托白色 A4 紙張 */
+    padding: 40px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    overflow-y: auto;
+    overflow: hidden; /* 畫布本身不滾動 */
 }
 
-/* 單頁履歷 - 模擬真實 A4 紙張尺寸 */
+/* 單頁履歷 - 模擬真實 A4 紙張尺寸與防溢出優化 */
 .resume-page {
     position: absolute;
     width: 100%;
     max-width: 794px;
+    height: 100%;
+    max-height: 1123px; /* A4 標準網頁高度 */
     aspect-ratio: 1 / 1.4142;
     background: #ffffff;
-    padding: 50px 45px;
-    border-radius: 4px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 55px 50px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
     
+    /* 核心修正：內容超出時，在紙張內部提供滑順的滾動條 */
+    overflow-y: auto; 
+    scrollbar-width: thin; /* Firefox 瘦滾動條 */
+    
     opacity: 0;
-    transform: translateX(40px);
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateY(20px); /* 改為優雅的向上淡入 */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
     pointer-events: none;
+}
+
+/* 針對 Webkit 瀏覽器（Chrome, Edge, Safari）優化紙張內部滾動條樣式 */
+.resume-page::-webkit-scrollbar {
+    width: 6px;
+}
+.resume-page::-webkit-scrollbar-track {
+    background: transparent;
+}
+.resume-page::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.resume-page::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
 .resume-page.active {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
     pointer-events: auto;
 }
 
 /* 履歷元件基礎排版 */
 .resume-page h2 {
     color: #0f172a;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom: 6px;
+    letter-spacing: 0.5px;
 }
 
 .resume-page hr {
     border: 0;
-    height: 3px;
+    height: 4px;
     background: #3b82f6;
-    margin-bottom: 20px;
-    width: 50px;
+    margin-bottom: 25px;
+    width: 60px;
+    border-radius: 2px;
 }
 
 .page-content {
     color: #334155;
-    line-height: 1.7;
+    line-height: 1.75;
     font-size: 15px;
 }
 
 .intro-paragraph {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     text-align: justify;
+    text-indent: 2em; /* 首行縮進，排版更像正式報告 */
 }
 
 /* 技能區塊排版 */
 .skills-grid {
     display: flex;
-    gap: 30px;
+    gap: 35px;
 }
 
 .skill-block {
@@ -197,10 +248,12 @@ body {
 
 .skill-block h3, .edu-block h3, .awards-block h3 {
     font-size: 16px;
-    color: #1e293b;
+    color: #0f172a;
+    font-weight: 700;
     border-left: 4px solid #3b82f6;
-    padding-left: 8px;
-    margin-bottom: 12px;
+    padding-left: 10px;
+    margin-bottom: 14px;
+    margin-top: 5px;
 }
 
 .skill-block ul {
@@ -208,46 +261,56 @@ body {
 }
 
 .skill-block li {
-    margin-bottom: 8px;
-    background: #f8fafc;
-    padding: 6px 12px;
-    border-radius: 4px;
+    margin-bottom: 10px;
+    background: #f1f5f9;
+    padding: 8px 14px;
+    border-radius: 6px;
     font-size: 14px;
+    color: #334155;
+    font-weight: 500;
+    border-left: 3px solid #cbd5e1;
 }
 
-/* 工作經歷排版 */
+/* 工作經歷排版（微調緊湊度以適應 A4） */
 .exp-item {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     border-bottom: 1px dashed #e2e8f0;
-    padding-bottom: 15px;
+    padding-bottom: 18px;
 }
 
 .exp-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 4px;
 }
 
 .exp-header h3 {
     font-size: 16px;
     color: #0f172a;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .exp-date {
     color: #64748b;
     font-size: 13px;
+    font-weight: 500;
+    background: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 12px;
 }
 
 .exp-title {
-    color: #3b82f6;
-    font-weight: 500;
+    color: #2563eb;
+    font-weight: 600;
     font-size: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .exp-item ul {
@@ -257,33 +320,39 @@ body {
 }
 
 .exp-item li {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    text-align: justify;
 }
 
 /* 榮譽與獎項 */
 .award-item {
-    background: #f0fdf4;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
     border-left: 4px solid #22c55e;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .award-title {
-    font-weight: 600;
-    color: #166534;
+    font-weight: 700;
+    color: #14532d;
     font-size: 15px;
 }
 
 .award-title span {
-    font-weight: 400;
-    color: #15803d;
+    font-weight: 500;
+    color: #166534;
     font-size: 13px;
     float: right;
+    background: rgba(255,255,255,0.6);
+    padding: 1px 8px;
+    border-radius: 10px;
 }
 
 .award-desc {
     font-size: 13px;
     color: #166534;
-    margin-top: 4px;
+    margin-top: 6px;
+    opacity: 0.9;
 }
