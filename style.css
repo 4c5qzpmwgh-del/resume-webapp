@@ -36,7 +36,7 @@ body {
 }
 
 /* ==========================================================================
-   3. 左側懸浮導覽島 (Dark Sidebar)
+   3. 導覽島 (Sidebar)
    ========================================================================== */
 .sidebar {
     width: 280px;
@@ -47,6 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10;
 }
 
 .profile-summary { margin-bottom: 30px; }
@@ -131,7 +132,7 @@ body {
 }
 
 /* ==========================================================================
-   4. 右側內容畫布區 (Editorial Paper Canvas)
+   4. 右側內容畫布區 (Canvas)
    ========================================================================== */
 .content-canvas {
     flex: 1;
@@ -172,7 +173,6 @@ body {
     pointer-events: auto;
 }
 
-/* 標題與內文基礎樣式 */
 .resume-page h2 {
     font-family: "Georgia", serif;
     font-size: 28px;
@@ -190,15 +190,9 @@ body {
     margin-left: 20px;
 }
 
-.page-content {
-    color: #334155;
-    line-height: 1.8;
-    font-size: 15px;
-}
-
+.page-content { color: #334155; line-height: 1.8; font-size: 15px; }
 .intro-paragraph { margin-bottom: 20px; text-align: justify; }
 
-/* 列表與區塊排版 */
 .skills-grid { display: flex; gap: 50px; }
 .skill-block { flex: 1; }
 .skill-block h3 { font-size: 14px; color: #1a1c20; margin-bottom: 15px; text-transform: uppercase; }
@@ -208,14 +202,12 @@ body {
 .bullet-list li { margin-bottom: 8px; position: relative; padding-left: 15px; text-align: justify;}
 .bullet-list li::before { content: "•"; position: absolute; left: 0; color: #3b82f6; }
 
-/* 分頁工作經歷 */
 .exp-item { margin-bottom: 35px; }
 .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
 .exp-header h3 { font-size: 18px; color: #1a1c20; }
 .exp-date { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #94a3b8; }
 .exp-title { color: #3b82f6; font-weight: 600; font-size: 14px; margin-bottom: 12px; }
 
-/* 培訓與獎項區塊 */
 .training-item { background: #f8fafc; padding: 18px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid #3b82f6; }
 .training-title { font-weight: 600; color: #1a1c20; margin-bottom: 6px; }
 .training-desc { font-size: 14px; color: #64748b; }
@@ -225,104 +217,116 @@ body {
 .award-desc { font-size: 13.5px; color: #64748b; margin-top: 4px; }
 
 /* ==========================================================================
-   5. A4 強制雙欄網格 (A4 Split Grid System) - 確保從這裡複製到最後！
+   5. A4 強制雙欄網格 (電腦版)
    ========================================================================== */
 .a4-layout { padding: 50px 60px; }
 
-.a4-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 2px solid #1a1c20;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-}
+.a4-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #1a1c20; padding-bottom: 15px; margin-bottom: 25px; }
+.a4-name-box h1 { font-family: "Georgia", serif; font-size: 34px; color: #1a1c20; }
+.a4-name-box h1 span { font-family: "Inter", sans-serif; font-size: 18px; color: #94a3b8; font-weight: 400; margin-left: 10px; }
+.a4-role { font-size: 12px; letter-spacing: 2px; color: #3b82f6; font-weight: 700; margin-top: 5px; }
+.a4-contact-box { text-align: right; font-size: 11px; font-family: "JetBrains Mono", monospace; color: #64748b; line-height: 1.6; }
 
-.a4-name-box h1 {
-    font-family: "Georgia", serif;
-    font-size: 34px;
-    color: #1a1c20;
-}
+.a4-split-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.a4-left-col { display: flex; flex-direction: column; gap: 25px; }
+.a4-right-col { display: flex; flex-direction: column; gap: 25px; }
 
-.a4-name-box h1 span {
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    color: #94a3b8;
-    font-weight: 400;
-    margin-left: 10px;
-}
-
-.a4-role {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #3b82f6;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-.a4-contact-box {
-    text-align: right;
-    font-size: 11px;
-    font-family: "JetBrains Mono", monospace;
-    color: #64748b;
-    line-height: 1.6;
-}
-
-/* 強制網格佈局：保證絕對左右分區 */
-.a4-split-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* 左側佔 1 份，右側佔 2 份寬度 */
-    gap: 40px;
-}
-
-/* 左側窄欄 */
-.a4-left-col {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* 右側寬欄 */
-.a4-right-col {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* A4 內部標題與文字細節 */
-.a4-section h4 {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    color: #94a3b8;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 5px;
-}
-
+.a4-section h4 { font-size: 11px; letter-spacing: 1.5px; color: #94a3b8; text-transform: uppercase; margin-bottom: 12px; border-bottom: 1px solid #f1f5f9; padding-bottom: 5px; }
 .a4-text { font-size: 12px; line-height: 1.7; color: #475569; text-align: justify; }
 
 .a4-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
 .a4-tags li { font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 4px; font-weight: 500;}
-
 .a4-list { padding-left: 14px; font-size: 12px; color: #475569; line-height: 1.6; }
 .a4-list li { margin-bottom: 4px; }
 
-/* 工作經歷 A4 緊湊排版 */
 .a4-job { margin-bottom: 15px; }
 .a4-job-head { display: flex; justify-content: space-between; align-items: baseline; }
 .a4-job-head h5 { font-size: 14px; color: #1a1c20; font-weight: 700; }
 .a4-job-head span { font-size: 11px; color: #94a3b8; font-family: "JetBrains Mono", monospace; }
 .a4-light { font-weight: 400; color: #94a3b8; font-size: 12px; }
-
 .a4-job-title { font-size: 12px; color: #3b82f6; font-weight: 600; margin-bottom: 6px; }
-
 .a4-job-desc { padding-left: 14px; font-size: 12px; color: #475569; line-height: 1.5; }
 .a4-job-desc li { margin-bottom: 3px; text-align: justify; }
 
-/* 培訓與獎項 A4 排版 */
 .a4-box-item { background: #f8fafc; padding: 10px 12px; border-radius: 6px; margin-bottom: 10px; }
 .a4-box-item strong { font-size: 12px; color: #1a1c20; display: block; margin-bottom: 3px; }
 .a4-box-item p { font-size: 11.5px; color: #64748b; line-height: 1.4; }
-
 .a4-award-line { font-size: 12px; color: #334155; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; }
+
+/* ==========================================================================
+   6. 📱 手機版 RWD 響應式佈局 (Responsive Web Design)
+   當螢幕寬度小於 850px 時，自動切換為手機模式
+   ========================================================================== */
+@media screen and (max-width: 850px) {
+    body { background: #f4f3f0; }
+
+    .app-container {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 0;
+        gap: 0;
+        border: none;
+    }
+
+    /* 手機版頂部導覽區 */
+    .sidebar {
+        width: 100%;
+        border-radius: 0;
+        padding: 25px 20px 10px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-summary { margin-bottom: 15px; }
+    .profile-summary h2 { font-size: 26px; }
+    
+    /* 隱藏聯絡資訊以節省手機螢幕高度 */
+    .contact-info { display: none; }
+
+    /* 手機版導覽列：改為橫向滑動 */
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap; /* 不斷行 */
+        padding-bottom: 10px;
+        gap: 15px;
+    }
+
+    /* 隱藏原生捲軸但保持可滑動 */
+    .nav-menu::-webkit-scrollbar { display: none; }
+
+    .nav-item { padding: 5px; font-size: 13px; }
+    .nav-item.active { padding-left: 5px; }
+    .nav-item.active::before { display: none; /* 移除箭頭標記 */ }
+    .nav-item.a4-btn { margin-top: 0; border: none; padding: 5px; }
+
+    /* 手機版內容畫布 */
+    .content-canvas { padding: 0; perspective: none; }
+
+    .resume-page {
+        border-radius: 0;
+        padding: 30px 25px;
+        transform: none !important;
+        box-shadow: none;
+    }
+
+    /* 釋放 A4 強制高度限制，讓手機能夠往下自然滾動 */
+    .a4-integrated-layout {
+        max-height: none !important;
+        overflow-y: auto !important;
+        padding: 30px 25px;
+    }
+
+    /* 將 A4 雙欄網格改成「單欄上下堆疊」 */
+    .a4-split-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* 手機排版細節微調 */
+    .a4-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .a4-contact-box { text-align: left; }
+    .skills-grid { flex-direction: column; gap: 30px; }
+}
